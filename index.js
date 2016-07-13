@@ -1,7 +1,23 @@
-const isNumber = require('is-number')
+// Clone arrays and override the behavior of console.log
+// https://groups.google.com/forum/#!topic/nodejs/1wTDLb20xac
+class KeyedArray extends Array {
+  constructor (sourceArray) {
+    super()
+    if (Array.isArray(sourceArray)) {
+      sourceArray.forEach(element => this.push(element))
+    }
+  }
 
-function addKeys (array) {
+  inspect () {
+    // `map` rids the array of named keys
+    return this.map(e => e)
+  }
+}
+
+module.exports = function keyedArray (array) {
   if (!Array.isArray(array)) return array
+
+  array = new KeyedArray(array)
 
   array.forEach(element => {
     var identifier = element.name || element.id
@@ -9,29 +25,10 @@ function addKeys (array) {
 
     if (element && typeof element === 'object') {
       Object.keys(element).forEach(function (e) {
-        addKeys(element[e])
+        element[e] = keyedArray(element[e])
       })
     }
   })
-}
 
-function removeKeys (array) {
-  if (!Array.isArray(array)) return array
-
-  Object.keys(array).forEach(key => {
-    var element = array[key]
-
-    if (element && typeof element === 'object') {
-      Object.keys(element).forEach(function (e) {
-        removeKeys(element[e])
-      })
-    }
-
-    if (!isNumber(key)) delete array[key]
-  })
-}
-
-module.exports = {
-  addKeys: addKeys,
-  removeKeys: removeKeys
+  return array
 }

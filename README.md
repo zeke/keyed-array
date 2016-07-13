@@ -2,15 +2,36 @@
 
 Recursively add named keys to arrays of objects
 
-I wrote a blog post about this idea: http://zeke.sikelianos.com/keyed-arrays-in-javascript
-
-For usage examples, see [test.js](test.js)
+I wrote a blog post about the idea here: http://zeke.sikelianos.com/keyed-arrays-in-javascript
 
 ## Installation
 
 ```sh
 npm install keyed-array --save
 ```
+
+## Usage
+
+For more extensive usage examples, see [test.js](test.js)
+
+```js
+const keyedArray = require('keyed-array')
+
+let people = [
+  {id: 'bob', name: 'Bob', isCool: false},
+  {id: 'sue', name: 'Sue', isCool: false},
+  {id: 'hal', name: 'Hal', isCool: true},
+  {id: 'ann', name: 'Ann', isCool: true}
+]
+
+people = keyedArray(people)
+
+// `people` is still an array, but now it also has keys based on the `id`
+// value of each object
+people.bob
+// {id: 'bob', name: 'Bob', isCool: false}
+```
+
 
 ## Tests
 
@@ -21,7 +42,7 @@ npm test
 
 ## Dependencies
 
-- [is-number](https://github.com/jonschlinkert/is-number): Returns true if the value is a number. comprehensive tests.
+None
 
 ## Dev Dependencies
 

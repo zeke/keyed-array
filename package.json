@@ -30,8 +30,5 @@
     "standard": "^7.1.2",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.0"
-  },
-  "dependencies": {
-    "is-number": "^2.1.0"
   }
 }
