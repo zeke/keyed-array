@@ -1,4 +1,4 @@
-# keyed-array
+# keyed-array [![Build Status](https://travis-ci.org/zeke/keyed-array.svg?branch=master)](https://travis-ci.org/zeke/keyed-array)
 
 Recursively add named keys to arrays of objects
 
