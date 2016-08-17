@@ -1,3 +1,5 @@
+'use strict'
+
 // Clone arrays and override the behavior of console.log
 // https://groups.google.com/forum/#!topic/nodejs/1wTDLb20xac
 class KeyedArray extends Array {
