@@ -10,10 +10,11 @@ class KeyedArray extends Array {
     }
   }
 
-  inspect () {
-    // `map` rids the array of named keys
-    return this.map(e => e)
-  }
+  // Disable for now, because it's causing some weird resursion errors sometimes
+  // inspect () {
+  //   // `map` rids the array of named keys
+  //   return this.map(e => e)
+  // }
 }
 
 module.exports = function keyedArray (array) {
