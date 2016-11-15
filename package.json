@@ -1,6 +1,6 @@
 {
   "name": "keyed-array",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Recursively add named keys to arrays of objects",
   "main": "index.js",
   "scripts": {
