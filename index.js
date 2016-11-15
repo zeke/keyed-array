@@ -23,7 +23,7 @@ module.exports = function keyedArray (array) {
 
   array.forEach(element => {
     var identifier = element.name || element.id
-    if (identifier) array[identifier] = element
+    if (identifier && identifier !== 'length') array[identifier] = element
 
     if (element && typeof element === 'object') {
       Object.keys(element).forEach(function (e) {
